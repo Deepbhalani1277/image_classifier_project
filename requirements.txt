@@ -1,6 +1,6 @@
 # Deep Learning Framework (Compatible with Google Colab)
 tensorflow==2.16.1
-keras==2.16.0
+
 
 
 # Web Framework
