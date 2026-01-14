@@ -1,0 +1,26 @@
+# Deep Learning Framework (Compatible with Google Colab)
+tensorflow==2.16.1
+keras==2.16.0
+
+
+# Web Framework
+Flask==3.0.0
+Flask-CORS==4.0.0
+
+# Image Processing
+Pillow==10.1.0
+numpy==1.26.2
+
+# Data Visualization
+matplotlib==3.8.2
+seaborn==0.13.0
+
+# Machine Learning Utilities
+scikit-learn==1.7.2
+
+# Utilities
+Werkzeug==3.0.1
+
+# Production Server
+gunicorn==21.2.0
+

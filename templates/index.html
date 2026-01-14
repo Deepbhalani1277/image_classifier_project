@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Image Classification System using CNN - College Project">
+    <title>CNN Image Classifier | Home</title>
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="animated-background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>CNN Classifier</span>
+            </div>
+            <nav class="nav">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="/classify" class="nav-link">Classify</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <main class="hero-section">
+            <div class="hero-content">
+                <!-- Badge -->
+                <div class="badge">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>4th Semester B.Tech Project</span>
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="hero-title">
+                    Image Classification System
+                    <span class="gradient-text">Using CNN</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="hero-subtitle">
+                    Powered by Deep Learning • Trained on CIFAR-10 Dataset
+                </p>
+
+                <!-- Description -->
+                <div class="description-box">
+                    <p class="description-text">
+                        <i class="fas fa-info-circle"></i>
+                        This intelligent system uses a <strong>Convolutional Neural Network</strong>
+                        to classify images into 10 categories with high accuracy. Upload any image
+                        and watch AI identify whether it's an airplane, automobile, bird, cat, deer,
+                        dog, frog, horse, ship, or truck.
+                    </p>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3>Deep CNN</h3>
+                        <p>Multi-layer neural network architecture</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>CIFAR-10</h3>
+                        <p>Trained on 60,000 images</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>High Accuracy</h3>
+                        <p>Optimized for performance</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Real-time</h3>
+                        <p>Instant predictions</p>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="/classify" class="cta-button">
+                    <span>Start Image Classification</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <!-- Tech Stack -->
+                <div class="tech-stack">
+                    <p class="tech-label">Built with:</p>
+                    <div class="tech-badges">
+                        <span class="tech-badge">
+                            <i class="fab fa-python"></i> Python
+                        </span>
+                        <span class="tech-badge">
+                            <i class="fas fa-brain"></i> TensorFlow
+                        </span>
+                        <span class="tech-badge">
+                            <i class="fas fa-server"></i> Flask
+                        </span>
+                        <span class="tech-badge">
+                            <i class="fab fa-html5"></i> HTML/CSS/JS
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decorative Elements -->
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                <i class="fas fa-code"></i>
+                Developed by <strong>Deep Bhalani (D25DCS165)</strong> & <strong>Vishwa Vaghasiya (D25DCS154)</strong>
+            </p>
+            <p style="margin-top: 5px; font-size: 0.9em; opacity: 0.8;">
+                College Project | CSUP201 SGP | 4th Semester B.Tech | 2026
+            </p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

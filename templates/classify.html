@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Upload and classify images using CNN">
+    <title>CNN Image Classifier | Classify</title>
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="animated-background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>CNN Classifier</span>
+            </div>
+            <nav class="nav">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/classify" class="nav-link active">Classify</a>
+            </nav>
+        </header>
+
+        <!-- Classification Section -->
+        <main class="classify-section">
+            <div class="classify-container">
+                <!-- Page Title -->
+                <div class="page-header">
+                    <h1 class="page-title">
+                        <i class="fas fa-image"></i>
+                        Image Classification
+                    </h1>
+                    <p class="page-subtitle">
+                        Upload an image to classify it using our trained CNN model
+                    </p>
+                </div>
+
+                <!-- Upload Area -->
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content" id="uploadContent">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h3>Drag & Drop Image Here</h3>
+                        <p>or click to browse</p>
+                        <p class="file-info">Supported formats: JPG, PNG, GIF, BMP</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                        <button class="browse-button" onclick="document.getElementById('fileInput').click()">
+                            <i class="fas fa-folder-open"></i>
+                            Browse Files
+                        </button>
+                    </div>
+
+                    <!-- Image Preview (Hidden initially) -->
+                    <div class="image-preview" id="imagePreview" style="display: none;">
+                        <img id="previewImg" src="" alt="Preview">
+                        <div class="preview-overlay">
+                            <button class="change-image-btn" onclick="document.getElementById('fileInput').click()">
+                                <i class="fas fa-sync-alt"></i>
+                                Change Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons" id="actionButtons" style="display: none;">
+                    <button class="classify-button" id="classifyBtn">
+                        <i class="fas fa-search"></i>
+                        <span>Scan & Classify Image</span>
+                    </button>
+                </div>
+
+                <!-- Loading Animation (Hidden initially) -->
+                <div class="loading-container" id="loadingContainer" style="display: none;">
+                    <div class="scanner-animation">
+                        <div class="scanner-line"></div>
+                        <div class="scanner-glow"></div>
+                    </div>
+                    <p class="loading-text">
+                        <i class="fas fa-cog fa-spin"></i>
+                        Analyzing image with neural network...
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+
+                <!-- Results Section (Hidden initially) -->
+                <div class="results-container" id="resultsContainer" style="display: none;">
+                    <div class="result-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h2>Classification Results</h2>
+                    </div>
+
+                    <!-- Main Prediction -->
+                    <div class="main-prediction">
+                        <div class="prediction-icon" id="predictionIcon">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <div class="prediction-details">
+                            <p class="prediction-label">Predicted Class</p>
+                            <h3 class="prediction-class" id="predictedClass">-</h3>
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" id="confidenceFill" style="width: 0%"></div>
+                            </div>
+                            <p class="confidence-text">
+                                Confidence: <span id="confidenceValue">0%</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Top 3 Predictions -->
+                    <div class="top-predictions">
+                        <h4>Top 3 Predictions</h4>
+                        <div class="predictions-list" id="predictionsList">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- All Predictions Chart -->
+                    <div class="all-predictions">
+                        <h4>All Class Probabilities</h4>
+                        <div class="predictions-chart" id="predictionsChart">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Try Another Button -->
+                    <button class="try-another-btn" id="tryAnotherBtn">
+                        <i class="fas fa-redo"></i>
+                        Classify Another Image
+                    </button>
+                </div>
+
+                <!-- Error Message (Hidden initially) -->
+                <div class="error-container" id="errorContainer" style="display: none;">
+                    <div class="error-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Oops! Something went wrong</h3>
+                    <p id="errorMessage">An error occurred during classification.</p>
+                    <button class="try-again-btn" onclick="location.reload()">
+                        <i class="fas fa-redo"></i>
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                <i class="fas fa-code"></i>
+                Developed by <strong>Deep Bhalani (D25DCS165)</strong> & <strong>Vishwa Vaghasiya (D25DCS154)</strong> |
+                CSUP201 SGP | 2026
+            </p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

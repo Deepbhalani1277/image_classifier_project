@@ -1,0 +1,54 @@
+# Python Virtual Environments
+venv/
+venv310/
+.venv/
+env/
+ENV/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Model Files (large files - don't commit to Git)
+*.h5
+*.hdf5
+
+# Training Output Images
+training_history.png
+confusion_matrix.png
+
+# Uploaded Images (keep folder structure, ignore contents)
+static/uploads/*
+!static/uploads/.gitkeep
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment Variables
+.env
+.env.local
+
+# Logs
+*.log
+
+# Distribution / Packaging
+build/
+dist/
+*.egg-info/
+
+# Documentation (optional - uncomment if you don't want to commit docs)
+# documentation/
