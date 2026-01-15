@@ -1,0 +1,36 @@
+# ============================================
+# REQUIREMENTS FOR IMAGE CLASSIFIER PROJECT
+# Compatible with Google Colab TensorFlow 2.19.0
+# Python 3.10+ Compatible
+# ============================================
+
+# Deep Learning Framework
+# TensorFlow 2.19.0 matches Google Colab exactly (as of Jan 2026)
+tensorflow==2.19.0
+
+# Model Loading Support
+# h5py is required for loading .h5 model files
+h5py==3.11.0
+
+# Web Framework
+Flask==3.0.3
+Flask-CORS==4.0.1
+
+# Image Processing
+Pillow==10.4.0
+
+# NumPy - Compatible with TensorFlow 2.19.0
+numpy==1.26.4
+
+# Data Visualization (for training scripts)
+matplotlib==3.9.2
+seaborn==0.13.2
+
+# Machine Learning Utilities
+scikit-learn==1.5.2
+
+# Utilities
+Werkzeug==3.0.3
+
+# Production Server (for deployment)
+gunicorn==23.0.0
