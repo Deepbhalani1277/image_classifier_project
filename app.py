@@ -45,11 +45,32 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # Max 16MB file size
 # ============================================
 print("🔄 Loading trained model...")
 try:
-    model = keras.models.load_model('model.h5')
-    print("✅ Model loaded successfully!\n")
+    # Load model with compile=False to avoid optimizer compatibility issues
+    # This is especially important when loading models trained on Google Colab
+    model = keras.models.load_model('model.h5', compile=False)
+    
+    # Recompile the model with the same configuration
+    # This ensures compatibility across different TensorFlow versions
+    model.compile(
+        optimizer='adam',
+        loss='categorical_crossentropy',
+        metrics=['accuracy']
+    )
+    
+    print("✅ Model loaded successfully!")
+    print(f"   Model input shape: {model.input_shape}")
+    print(f"   Model output shape: {model.output_shape}\n")
+except FileNotFoundError:
+    print("❌ Error: model.h5 not found!")
+    print("Please train the model first by running: python train_model.py")
+    print("Or upload a model.h5 file trained on Google Colab to the project folder.\n")
+    model = None
 except Exception as e:
     print(f"❌ Error loading model: {e}")
-    print("Please train the model first by running: python train_model.py\n")
+    print("If you trained the model on Google Colab, make sure:")
+    print("  1. The model.h5 file is in the project root directory")
+    print("  2. You're using compatible TensorFlow versions")
+    print("  3. The model architecture matches the expected format\n")
     model = None
 
 
